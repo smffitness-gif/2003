@@ -65,6 +65,31 @@
                 font-size: 16px;
             }
         }
+
+        /* Back Button */
+        .back-btn {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+
+            font-size: 22px;
+            color: white;
+
+            background: #111;
+            padding: 10px 14px;
+
+            border-radius: 50%;
+            text-decoration: none;
+
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: 0.3s;
+        }
+
+
+
+        .back-btn:active {
+            transform: scale(0.95);
+        }
     </style>
 
 </head>
@@ -72,7 +97,9 @@
 <body>
 
     <div class="navbar">
-        <h2>SMF FITNESS PRODUCTS</h2>
+        <a href="index.html" class="back-btn">⬅</a>
+
+        <h2>SMF SUPPLIMENTS</h2>
     </div>
 
     <h2>Select Category</h2>
