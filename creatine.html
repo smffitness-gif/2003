@@ -1,266 +1,311 @@
+```html id="cr8t0n"
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creatine Products</title>
 
-    <!-- ✅ MOBILE FIX -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #0f0f0f;
+    color: white;
+    text-align: center;
+}
 
-    <title>Creatine Products</title>
+.navbar {
+    background: #111;
+    padding: 15px;
+    font-size: 20px;
+}
 
-    <style>
-        /* ===== BODY ===== */
-        body {
-            margin: 0;
-            font-family: Arial;
-            background: #0f0f0f;
-            color: white;
-            text-align: center;
-        }
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    padding: 15px;
+}
 
-        /* ===== NAVBAR ===== */
-        .navbar {
-            background: #111;
-            padding: 15px;
-            font-size: 20px;
-        }
+.product-card {
+    background: #1a1a1a;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-        /* ===== GRID ===== */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 15px;
-            padding: 15px;
-        }
+.product-card:hover {
+    transform: scale(1.05);
+}
 
-        /* ===== CARD ===== */
-        .product-card {
-            background: #1a1a1a;
-            padding: 10px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+.product-card img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 10px;
+}
 
-        .product-card:hover {
-            transform: scale(1.05);
-        }
+.product-detail {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 350px;
+    margin: 20px auto;
+}
 
-        .product-card img {
-            width: 100%;
-            height: 130px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
+.product-detail img {
+    width: 100%;
+    border-radius: 10px;
+}
 
-        /* ===== DETAIL ===== */
-        .product-detail {
-            background: #1a1a1a;
-            padding: 20px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 350px;
-            margin: 20px auto;
-        }
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 6px;
+    border-radius: 5px;
+    border: none;
+}
 
-        .product-detail img {
-            width: 100%;
-            border-radius: 10px;
-        }
+button {
+    background: #ff6600;
+    border: none;
+    padding: 10px;
+    color: white;
+    margin: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-        /* ===== INPUT ===== */
-        input {
-            width: 90%;
-            padding: 10px;
-            margin: 6px;
-            border-radius: 5px;
-            border: none;
-        }
+button:hover {
+    background: #00c853;
+}
 
-        /* ===== BUTTON ===== */
-        button {
-            background: #ff6600;
-            border: none;
-            padding: 10px;
-            color: white;
-            margin: 8px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+.back-btn {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    font-size: 22px;
+    color: white;
+    background: #111;
+    padding: 10px 14px;
+    border-radius: 50%;
+    text-decoration: none;
+}
 
-        button:hover {
-            background: #00c853;
-        }
+/* ===== CART ===== */
+.cart-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: orange;
+    color: black;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 999;
+}
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 1024px) {
-            .grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
+.cart-box {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 260px;
+    background: #222;
+    padding: 15px;
+    border-radius: 10px;
+    display: none;
+    z-index: 999;
+}
 
-        @media (max-width: 768px) {
-            .grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
 
-        @media (max-width: 480px) {
-            .grid {
-                grid-template-columns: 1fr;
-            }
+.remove-btn {
+    background: red;
+    border: none;
+    color: white;
+    padding: 2px 6px;
+    cursor: pointer;
+}
 
-            .navbar {
-                font-size: 16px;
-            }
-        }
-
-        /* Back Button */
-        .back-btn {
-            position: fixed;
-            top: 15px;
-            left: 15px;
-
-            font-size: 22px;
-            color: white;
-
-            background: #111;
-            padding: 10px 14px;
-
-            border-radius: 50%;
-            text-decoration: none;
-
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            transition: 0.3s;
-        }
-
-
-
-        .back-btn:active {
-            transform: scale(0.95);
-        }
-    </style>
+/* TOAST */
+#toast {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background: green;
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: 0.3s;
+    z-index: 999;
+}
+</style>
 </head>
 
 <body>
 
-    <nav class="navbar">
-        <a href="products.html" class="back-btn">⬅</a>
+<nav class="navbar">
+<a href="products.html" class="back-btn">⬅</a>
+<h2>Creatine</h2>
+</nav>
 
-        <h2>Creatine</h2>
-    </nav>
+<div id="grid" class="grid"></div>
 
-    <div id="grid" class="grid"></div>
+<div id="detail" class="product-detail" style="display:none;">
+<img id="pimg">
+<h3 id="pname"></h3>
+<p id="pprice"></p>
+<ul id="pdesc"></ul>
 
-    <div id="detail" class="product-detail" style="display:none;">
-        <img id="pimg">
-        <h3 id="pname"></h3>
-        <p id="pprice"></p>
-        <ul id="pdesc"></ul>
-        <button onclick="showOrder()">Order</button>
-        <button onclick="backToGrid()">⬅ Back</button>
-    </div>
+<!-- ADDED -->
+<button onclick="addToCart()">Add to Cart</button>
 
-    <div id="order" class="product-detail" style="display:none;">
-        <h3>Order Form</h3>
-        <img id="oimg">
-        <h4 id="oname"></h4>
-        <p id="oprice"></p>
-        <input id="name" placeholder="Name">
-        <input id="phone" placeholder="Phone">
-        <input id="email" placeholder="Email">
-        <button onclick="orderNow()">Submit</button>
-        <button onclick="backToDetail()">⬅ Back</button>
-    </div>
+<button onclick="showOrder()">Order</button>
+<button onclick="backToGrid()">⬅ Back</button>
+</div>
 
-    <script>
+<div id="order" class="product-detail" style="display:none;">
+<h3>Order Form</h3>
+<img id="oimg">
+<h4 id="oname"></h4>
+<p id="oprice"></p>
+<input id="name" placeholder="Name">
+<input id="phone" placeholder="Phone">
+<input id="email" placeholder="Email">
+<button onclick="orderNow()">Submit</button>
+<button onclick="backToDetail()">⬅ Back</button>
+</div>
 
-        const products = [
-            { name: "Creatine 1", price: 1000, img: "img/creatine1.jpg", desc: ["Supports strength", "Muscle energy", "Quality"] },
-            { name: "Creatine 2", price: 1100, img: "img/creatine2.jpg", desc: ["Improves performance", "Boosts power", "Fast absorption"] },
-            { name: "Creatine 3", price: 1200, img: "img/creatine3.jpg", desc: ["Muscle recovery", "Strength", "Premium"] },
-            { name: "Creatine 4", price: 1300, img: "img/creatine4.jpg", desc: ["Energy boost", "Muscle support", "Tasty"] },
-            { name: "Creatine 5", price: 1400, img: "img/creatine5.jpg", desc: ["High quality", "Endurance", "Strength"] },
-            { name: "Creatine 6", price: 1500, img: "img/creatine6.jpg", desc: ["Fast absorption", "Muscle energy", "Performance"] },
-            { name: "Creatine 7", price: 1600, img: "img/creatine7.jpg", desc: ["Premium", "Recovery", "Boost"] },
-            { name: "Creatine 8", price: 1700, img: "img/creatine8.jpg", desc: ["Strength", "Energy", "Muscle"] },
-            { name: "Creatine 9", price: 1800, img: "img/creatine9.jpg", desc: ["Quality", "Endurance", "Power"] },
-            { name: "Creatine 10", price: 1900, img: "img/creatine10.jpg", desc: ["Recovery", "Muscle growth", "Fast absorption"] }
-        ];
+<!-- CART UI -->
+<div class="cart-btn" onclick="toggleCart()">🛒</div>
 
-        const grid = document.getElementById("grid");
+<div class="cart-box" id="cartBox">
+<h3>Cart</h3>
+<div id="cartItems"></div>
+<h4>Total: ₹<span id="total">0</span></h4>
+</div>
 
-        products.forEach((p, i) => {
-            const div = document.createElement("div");
-            div.className = "product-card";
-            div.innerHTML = `
-        <img src="${p.img}">
-        <h4>${p.name}</h4>
-        <p>₹${p.price}</p>
-    `;
-            div.onclick = () => showDetail(i);
-            grid.appendChild(div);
-        });
+<div id="toast"></div>
 
-        let currentProduct = null;
+<script>
+const products = [
+{ name: "Creatine 1", price: 1000, img: "img/creatine1.jpg", desc: ["Supports strength","Muscle energy","Quality"] },
+{ name: "Creatine 2", price: 1100, img: "img/creatine2.jpg", desc: ["Improves performance","Boosts power","Fast absorption"] },
+{ name: "Creatine 3", price: 1200, img: "img/creatine3.jpg", desc: ["Muscle recovery","Strength","Premium"] },
+{ name: "Creatine 4", price: 1300, img: "img/creatine4.jpg", desc: ["Energy boost","Muscle support","Tasty"] },
+{ name: "Creatine 5", price: 1400, img: "img/creatine5.jpg", desc: ["High quality","Endurance","Strength"] }
+];
 
-        function showDetail(i) {
-            currentProduct = products[i];
+const grid = document.getElementById("grid");
 
-            document.getElementById("pimg").src = currentProduct.img;
-            document.getElementById("pname").innerText = currentProduct.name;
-            document.getElementById("pprice").innerText = "₹" + currentProduct.price;
+products.forEach((p,i)=>{
+const div=document.createElement("div");
+div.className="product-card";
+div.innerHTML=`<img src="${p.img}"><h4>${p.name}</h4><p>₹${p.price}</p>`;
+div.onclick=()=>showDetail(i);
+grid.appendChild(div);
+});
 
-            const ul = document.getElementById("pdesc");
-            ul.innerHTML = "";
+let currentProduct=null;
+let cart=[];
 
-            currentProduct.desc.forEach(d => {
-                const li = document.createElement("li");
-                li.innerText = d;
-                ul.appendChild(li);
-            });
+function showDetail(i){
+currentProduct=products[i];
 
-            grid.style.display = "none";
-            document.getElementById("detail").style.display = "block";
-        }
+pimg.src=currentProduct.img;
+pname.innerText=currentProduct.name;
+pprice.innerText="₹"+currentProduct.price;
 
-        function backToGrid() {
-            document.getElementById("detail").style.display = "none";
-            grid.style.display = "grid";
-        }
+pdesc.innerHTML="";
+currentProduct.desc.forEach(d=>{
+let li=document.createElement("li");
+li.innerText=d;
+pdesc.appendChild(li);
+});
 
-        function showOrder() {
-            document.getElementById("oimg").src = currentProduct.img;
-            document.getElementById("oname").innerText = currentProduct.name;
-            document.getElementById("oprice").innerText = "₹" + currentProduct.price;
+grid.style.display="none";
+detail.style.display="block";
+}
 
-            document.getElementById("detail").style.display = "none";
-            document.getElementById("order").style.display = "block";
-        }
+function backToGrid(){
+detail.style.display="none";
+grid.style.display="grid";
+}
 
-        function backToDetail() {
-            document.getElementById("order").style.display = "none";
-            document.getElementById("detail").style.display = "block";
-        }
+function showOrder(){
+oimg.src=currentProduct.img;
+oname.innerText=currentProduct.name;
+oprice.innerText="₹"+currentProduct.price;
 
-        function orderNow() {
-            const name = encodeURIComponent(document.getElementById("name").value.trim());
-            const phone = encodeURIComponent(document.getElementById("phone").value.trim());
-            const email = encodeURIComponent(document.getElementById("email").value.trim());
+detail.style.display="none";
+order.style.display="block";
+}
 
-            if (!name || !phone || !email) {
-                alert("Please fill all fields!");
-                return;
-            }
+function backToDetail(){
+order.style.display="none";
+detail.style.display="block";
+}
 
-            const msg = `Order:%0AProduct: ${encodeURIComponent(currentProduct.name)}%0APrice: ₹${currentProduct.price}%0AName: ${name}%0APhone: ${phone}%0AEmail: ${email}`;
+function orderNow(){
+const name=document.getElementById("name").value.trim();
+const phone=document.getElementById("phone").value.trim();
+const email=document.getElementById("email").value.trim();
 
-            window.open(`https://api.whatsapp.com/send?phone=917339563621&text=${msg}`, "_blank");
-        }
+if(!name||!phone||!email){
+alert("Please fill all fields!");
+return;
+}
 
-    </script>
+const msg=`Order:%0AProduct: ${currentProduct.name}%0APrice: ₹${currentProduct.price}%0AName: ${name}%0APhone: ${phone}%0AEmail: ${email}`;
+window.open(`https://api.whatsapp.com/send?phone=917339563621&text=${msg}`,"_blank");
+}
+
+/* CART */
+function addToCart(){
+cart.push(currentProduct);
+renderCart();
+showToast(currentProduct.name);
+}
+
+function renderCart(){
+let total=0;
+cartItems.innerHTML="";
+cart.forEach((item,i)=>{
+total+=item.price;
+cartItems.innerHTML+=`
+<div class="cart-item">
+${item.name} ₹${item.price}
+<button class="remove-btn" onclick="removeItem(${i})">X</button>
+</div>`;
+});
+document.getElementById("total").innerText=total;
+}
+
+function removeItem(i){
+cart.splice(i,1);
+renderCart();
+}
+
+function toggleCart(){
+cartBox.style.display=cartBox.style.display==="block"?"none":"block";
+}
+
+function showToast(name){
+toast.innerText=name+" added 🛒";
+toast.style.opacity="1";
+setTimeout(()=>toast.style.opacity="0",2000);
+}
+</script>
 
 </body>
-
 </html>
+```
